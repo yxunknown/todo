@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/container">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#60efefef"
+            android:visibility="gone"
+            android:id="@+id/cancelItemBg"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/ivUnfinished"
+            android:src="@drawable/icon_uncheck"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:paddingStart="60dp"
+            android:textSize="18sp"
+            android:id="@+id/tvTodoName"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:gravity="center_vertical"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1.2dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/colorDanger"
+            android:orientation="vertical"
+            android:id="@+id/lvExpire"
+            android:layout_marginTop="25dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="40dp"
+            android:id="@+id/tvTodoInfo"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="@color/textSecondary"
+            android:paddingStart="60dp"
+            android:text="wwe"/>
+    </FrameLayout>
+
+</FrameLayout>

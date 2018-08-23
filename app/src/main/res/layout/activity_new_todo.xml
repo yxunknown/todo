@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container"
+    android:background="@color/colorDanger"
+    tools:context=".activity.NewTodoActivity">
+    <ImageView
+        android:id="@+id/btnSubmit"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/item_ripple"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="5dp"
+        android:src="@drawable/icon_ok" />
+
+    <ImageView
+        android:id="@+id/btnCancel"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/item_ripple"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="5dp"
+        android:src="@drawable/icon_close" />
+
+    <TextView
+        android:id="@+id/tvTaskName"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="bottom|end"
+        android:paddingEnd="20dp"
+        android:paddingStart="0dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/textIcon"
+        android:textSize="30sp" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="15sp"
+        android:id="@+id/edtTodoName"
+        android:hint="tap to input the name"
+        app:met_textColor="@color/textIcon"
+        app:met_errorColor="@color/textPrimary"
+        app:met_textColorHint="@color/colorDivider"
+        app:met_helperText="The name of your todo"
+        app:met_helperTextColor="@color/colorDivider"
+        app:met_helperTextAlwaysShown="true"
+        app:met_underlineColor="@color/colorDivider"/>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="15sp"
+        android:maxLines="1"
+        android:id="@+id/edtTodoDesc"
+        android:hint="tap to input the desc"
+        app:met_textColor="@color/textIcon"
+        app:met_errorColor="@color/textPrimary"
+        app:met_textColorHint="@color/colorDivider"
+        app:met_helperText="The describe of your todo"
+        app:met_helperTextColor="@color/colorDivider"
+        app:met_maxCharacters="20"
+        app:met_autoValidate="true"
+        app:met_validateOnFocusLost="true"
+        app:met_helperTextAlwaysShown="true"
+        app:met_underlineColor="@color/colorDivider"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:textColor="@color/colorDivider"
+        android:textSize="15sp"
+        android:text="tap to chose datetime"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/btnTodoDate"
+        android:gravity="center_vertical"
+        android:background="?android:selectableItemBackground"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="310dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="13sp"
+        android:textColor="@color/colorDivider"
+        android:text="The finish datetime of your todo"
+        android:layout_marginTop="350dp"/>
+</FrameLayout>

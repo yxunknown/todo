@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".activity.TaskActivity">
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:src="@drawable/icon_cat" />
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btnCancel"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="8dp"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:layout_gravity="end"
+        android:src="@drawable/icon_close_black" />
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/taskPager"
+        android:layout_marginBottom="60dp"
+        android:layout_marginTop="100dp"/>
+
+    <com.rd.PageIndicatorView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/taskIndicator"
+        android:layout_gravity="bottom"
+        app:piv_animationType="drop"
+        android:layout_marginStart="20dp"
+        app:piv_radius="5dp"
+        app:piv_dynamicCount="true"
+        app:piv_viewPager="@+id/taskPager"
+        app:piv_padding="5dp"
+        app:piv_unselectedColor="@color/colorDivider"/>
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/btnAddNewTodo"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="20dp"
+        android:padding="5dp"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:src="@drawable/icon_add_black" />
+
+</FrameLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/taskContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".activity.AddTaskActivity">
+
+    <ImageView
+        android:id="@+id/btnSubmit"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/item_ripple"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="5dp"
+        android:src="@drawable/icon_ok" />
+
+    <ImageView
+        android:id="@+id/btnCancel"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="70dp"
+        android:background="@drawable/item_ripple"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="5dp"
+        android:src="@drawable/icon_close" />
+
+    <TextView
+        android:id="@+id/tvTaskName"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="bottom|end"
+        android:paddingEnd="20dp"
+        android:paddingStart="0dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/textIcon"
+        android:textSize="30sp" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="15sp"
+        android:id="@+id/edtName"
+        android:hint="input name of task"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelTextColor="@color/colorDivider"
+        app:met_textColor="@color/textIcon"
+        app:met_errorColor="@color/textPrimary"
+        app:met_textColorHint="@color/colorDivider"
+        app:met_helperText="Input the name of your new task"
+        app:met_helperTextColor="@color/colorDivider"
+        app:met_helperTextAlwaysShown="true"
+        app:met_underlineColor="@color/colorDivider"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginTop="230dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/colorDivider"
+        android:textSize="12sp"
+        android:text="select a color theme"/>
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="255dp"
+        android:id="@+id/gvTheme"
+        android:numColumns="4"/>
+
+</FrameLayout>
