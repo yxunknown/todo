@@ -1,100 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<android.support.v4.widget.DrawerLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
-
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/icon_cat" />
-
-    <FrameLayout
+    android:id="@+id/drawer"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:id="@+id/titleContainer"
-        android:layout_marginTop="100dp"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="1dp"
-            android:background="@color/colorDivider"
-            android:layout_gravity="center_vertical"/>
-        <LinearLayout
-            android:layout_width="80dp"
-            android:layout_height="1dp"
-            android:background="@color/colorDivider"
-            android:layout_gravity="center_vertical|end"/>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:textColor="@color/textPrimary"
-                android:text="Tasks "/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textSize="25sp"
-                android:textColor="@color/textSecondary"
-                android:text=" Lists"/>
-        </LinearLayout>
-    </FrameLayout>
+        android:layout_height="match_parent"
+        tools:context=".activity.MainActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="160dp"
-        android:background="?android:selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:focusable="true"
-        android:id="@+id/btnAddList"
-        android:orientation="vertical">
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/icon_add" />
-        <TextView
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/btnOpenDrawer"
+            android:src="@drawable/icon_cat" />
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_marginTop="30dp"
-            android:text="ADD  LIST"
-            android:gravity="center|bottom"
-            android:textColor="@color/textSecondary"
-            android:textSize="12sp"/>
-    </RelativeLayout>
+            android:layout_height="60dp"
+            android:id="@+id/titleContainer"
+            android:layout_marginTop="100dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="1dp"
+                android:background="@color/colorDivider"
+                android:layout_gravity="center_vertical"/>
+            <LinearLayout
+                android:layout_width="80dp"
+                android:layout_height="1dp"
+                android:background="@color/colorDivider"
+                android:layout_gravity="center_vertical|end"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/textPrimary"
+                    android:text="Tasks "/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    android:textColor="@color/textSecondary"
+                    android:text=" Lists"/>
+            </LinearLayout>
+        </FrameLayout>
 
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:scrollbars="none"
-        android:layout_gravity="bottom">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="160dp"
+            android:background="?android:selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/btnAddList"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/icon_add" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="30dp"
+                android:text="ADD  LIST"
+                android:gravity="center|bottom"
+                android:textColor="@color/textSecondary"
+                android:textSize="12sp"/>
+        </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/taskListContainer"
-            android:layout_width="wrap_content"
+        <HorizontalScrollView
+            android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:orientation="horizontal"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp">
-        </LinearLayout>
-    </HorizontalScrollView>
+            android:scrollbars="none"
+            android:layout_gravity="bottom">
 
+            <LinearLayout
+                android:id="@+id/taskListContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="300dp"
+                android:orientation="horizontal"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp">
+            </LinearLayout>
+        </HorizontalScrollView>
+    </FrameLayout>
 
-</FrameLayout>
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        layout="@layout/todo_today"/>
+
+</android.support.v4.widget.DrawerLayout>

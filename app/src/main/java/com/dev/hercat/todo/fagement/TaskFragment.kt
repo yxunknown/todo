@@ -14,21 +14,27 @@ import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.dev.hercat.todo.R
+import com.dev.hercat.todo.activity.ProcessTodoActivity
 import com.dev.hercat.todo.activity.db
 import com.dev.hercat.todo.data.Task
 import com.dev.hercat.todo.data.Todo
 import com.dev.hercat.todo.data.TodoStatus
+import com.dev.hercat.todo.tools.getDate
 import com.github.lzyzsd.circleprogress.DonutProgress
+import kotlinx.android.synthetic.main.task_frgement.*
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.textColor
+import java.util.*
 
 class TaskFragment: Fragment() {
 
-    private var tvTaskName: TextView? = null
-    private var taskProgress: DonutProgress? = null
-    private var tvTaskInfo: TextView? = null
-    private var lvTask: ListView? = null
+    private lateinit var tvTaskName: TextView
+    private lateinit var taskProgress: DonutProgress
+    private lateinit var tvTaskInfo: TextView
+    private lateinit var lvTask: ListView
 
-    var task: Task? = null
+    lateinit var task: Task
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.task_frgement, container, false)
         tvTaskName = view.findViewById(R.id.tvTaskName)
@@ -40,9 +46,9 @@ class TaskFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
-        tvTaskName!!.text = task?.name ?: ""
-        tvTaskName!!.textColor = Color.parseColor(task?.color)
-        taskProgress!!.finishedStrokeColor = Color.parseColor(task?.color)
+        tvTaskName.text = task.name
+        tvTaskName.textColor = Color.parseColor(task.color)
+        taskProgress.finishedStrokeColor = Color.parseColor(task.color)
         refresh()
     }
 
@@ -54,12 +60,33 @@ class TaskFragment: Fragment() {
     }
 
     fun refresh() {
-        val todos = activity?.db?.selectTodoByTaskId(task?.id ?: -1) ?: listOf()
+        val todos = activity?.db?.selectTodoByTaskId(task.id) ?: listOf()
+        updateTodo(todos = todos.toMutableList())
+    }
+
+    fun updateTodo(todos: MutableList<Todo>) {
         if (todos.isNotEmpty()) {
-            val progress = todos.count { it.status == TodoStatus.TODO.value } / todos.count().toFloat()
-            taskProgress!!.progress = progress * 100
-            tvTaskInfo!!.text = "${todos.count { it.status == TodoStatus.TODO.value }} of ${todos.count()} tasks"
-            lvTask!!.adapter = TodoAdapter(context!!, todos)
+            val now = Date()
+            for ((index, todo) in todos.withIndex()) {
+                if(todo.status == TodoStatus.TODO.value &&
+                        getDate(todo.doTime).before(now)) {
+                    todos.removeAt(index)
+                    val newTodo = todo.copy(status = TodoStatus.EXPIRED.value)
+                    todos.add(index, newTodo)
+                    activity?.db?.updateTodo(newTodo)
+                }
+            }
+            val progress = todos.count { it.status == TodoStatus.FINISHED.value } / todos.count().toFloat()
+            taskProgress.progress = progress * 100
+            tvTaskInfo.text = "${todos.count { it.status == TodoStatus.TODO.value }} of ${todos.count()} tasks"
+            lvTask.adapter = TodoAdapter(context!!, task,  todos)
+            errorView.visibility = View.GONE
+            lvTask.visibility = View.VISIBLE
+        } else {
+            taskProgress.progress = 0f
+            tvTaskInfo.text = "0 task"
+            errorView.visibility = View.VISIBLE
+            lvTask.visibility = View.GONE
         }
     }
 
@@ -67,6 +94,7 @@ class TaskFragment: Fragment() {
 }
 
 class TodoAdapter(val context: Context,
+                  val task: Task,
                   val todos: List<Todo>): BaseAdapter() {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val todo = todos[position]
@@ -91,10 +119,24 @@ class TodoAdapter(val context: Context,
                             R.drawable.icon_uncheck
                        else R.drawable.icon_checked
             val color = if (todo.status == TodoStatus.TODO.value)
-                            R.color.textPrimary
-                        else R.color.colorSuccess
+                            context.resources.getColor(R.color.textPrimary)
+                        else context.resources.getColor(R.color.colorSuccess)
             tvName.textColor = color
             ivTaskStatus.setImageResource(icon)
+        }
+        view.onClick {
+            this@TodoAdapter.context.startActivity(
+                   this@TodoAdapter.context.intentFor<ProcessTodoActivity>(
+                           "taskName" to task.name,
+                           "color" to task.color,
+                           "todoStatus" to todo.status,
+                           "todoDesc" to todo.desc,
+                           "todoDate" to todo.doTime,
+                           "todoName" to todo.name,
+                           "todoId" to todo.id,
+                           "taskId" to task.id
+                   )
+            )
         }
         return view
     }

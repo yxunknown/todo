@@ -4,15 +4,13 @@ import android.content.ContentValues
 import android.content.Context
 import com.dev.hercat.todo.data.Task
 import com.dev.hercat.todo.data.Todo
-import org.jetbrains.anko.db.RowParser
-import org.jetbrains.anko.db.insert
-import org.jetbrains.anko.db.select
+import org.jetbrains.anko.db.*
 
 class Database(val context: Context) {
-    val NAME = "TASKS_LISTS"
-    val VERSION = 1
-    val db = DatabaseHelper.getInstance(context = context,
-            name =  NAME,
+    private val NAME = "TASKS_LISTS"
+    private val VERSION = 1
+    private val db = DatabaseHelper.getInstance(context = context,
+            name = NAME,
             factory = null,
             version = VERSION)
 
@@ -23,15 +21,15 @@ class Database(val context: Context) {
         // the insert fun will return the id of new row
         // or -1 when error occurs
         return db.use {
-            insert("task",null, values)
+            insert("task", null, values)
         } != -1L
     }
 
     fun selectTaskById(taskId: Int): List<Task> {
         return db.use {
-           select("task")
-                   .whereArgs("id = {id}", "id" to taskId)
-                   .parseList(TaskParser)
+            select("task")
+                    .whereArgs("id = {id}", "id" to taskId)
+                    .parseList(TaskParser)
         }
     }
 
@@ -69,12 +67,33 @@ class Database(val context: Context) {
     fun selectTodoByDate(date: String): List<Todo> {
         return db.use {
             select("todo")
-                    .whereArgs("doTime LIKES {date}", "date" to "$date%")
+                    .whereArgs("doTime LIKE {date}", "date" to "$date%")
                     .parseList(TodoParser)
         }
     }
 
-    object TaskParser: RowParser<Task> {
+    fun updateTodo(todo: Todo): Boolean {
+        return db.use {
+            update("todo",
+                    "taskId" to todo.taskId,
+                    "name" to todo.name,
+                    "desc" to todo.desc,
+                    "doTime" to todo.doTime,
+                    "status" to todo.status)
+                    .whereArgs("id = {id}", "id" to todo.id)
+                    .exec()
+        } != -1
+    }
+
+    fun deleteTodoById(id: Int): Boolean {
+        return db.use {
+            delete("todo",
+                    "id = {id}",
+                    "id" to id)
+        } == 1
+    }
+
+    object TaskParser : RowParser<Task> {
         override fun parseRow(columns: Array<Any?>): Task {
             return Task(id = (columns[0] as Long).toInt(),
                     name = columns[1] as String,
@@ -82,10 +101,10 @@ class Database(val context: Context) {
         }
     }
 
-    object TodoParser: RowParser<Todo> {
+    object TodoParser : RowParser<Todo> {
         override fun parseRow(columns: Array<Any?>): Todo {
             return Todo(id = (columns[0] as Long).toInt(),
-                    taskId =  (columns[1] as Long).toInt(),
+                    taskId = (columns[1] as Long).toInt(),
                     name = columns[2] as String,
                     desc = columns[3] as String,
                     status = (columns[4] as Long).toInt(),

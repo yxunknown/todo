@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:text="sdaw"
+            android:id="@+id/tvTodoName"
+            android:textColor="@color/textPrimary"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
+            android:id="@+id/tvTodoDate"
+            android:textSize="13sp"
+            android:textColor="@color/textSecondary"
+            android:text="sdadaw"
+            android:paddingEnd="20dp"/>
+    </FrameLayout>
+
+</FrameLayout>

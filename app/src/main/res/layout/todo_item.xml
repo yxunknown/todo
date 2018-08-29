@@ -30,7 +30,6 @@
             android:textSize="18sp"
             android:id="@+id/tvTodoName"
             android:textStyle="bold"
-            android:textColor="@color/textPrimary"
             android:gravity="center_vertical"/>
         <LinearLayout
             android:layout_width="match_parent"

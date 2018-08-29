@@ -24,20 +24,19 @@ class NewTodoActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_todo)
-        container.setBackgroundColor(Color.parseColor(intent.getStringExtra("color")))
         tvTaskName.text = intent.getStringExtra("name")
+        tvTaskName.textColor = Color.parseColor(intent.getStringExtra("color"))
         btnTodoDate.onClick {
             TimePickerBuilder(this@NewTodoActivity) { date, _ ->
                 currentDate.time = date
-                btnTodoDate.textColor = Color.WHITE
-                btnTodoDate.text = formatDate(date)
+                btnTodoDate.textColor = resources.getColor(R.color.textPrimary)
+                btnTodoDate.text = formateDate(date)
             }
                     .isDialog(false)
                     .setLabel("", "", "",
                             "", "", "")
-                    .setBgColor(Color.parseColor(intent.getStringExtra("color")))
                     .setTitleText("Chose Datetime")
-                    .setTitleColor(Color.WHITE)
+                    .setTitleColor(resources.getColor(R.color.textPrimary))
                     .setCancelText("Cancel")
                     .setSubmitText("Ok")
                     .setDate(currentDate)
@@ -46,24 +45,16 @@ class NewTodoActivity : AppCompatActivity() {
                     })
                     .isCyclic(false)
                     .setType(listOf(true, true, true, true, true, true).toBooleanArray())
-                    .setTitleBgColor(Color.parseColor(intent.getStringExtra("color")))
-                    .setTextColorCenter(Color.WHITE)
+                    .setTextColorCenter(resources.getColor(R.color.textSecondary))
                     .setTextColorOut(resources.getColor(R.color.colorDivider))
-                    .setSubmitColor(Color.WHITE)
-                    .setCancelColor(Color.WHITE)
+                    .setSubmitColor(resources.getColor(R.color.colorSuccess))
+                    .setCancelColor(resources.getColor(R.color.colorDanger))
                     .setDividerColor(resources.getColor(R.color.colorDivider))
                     .build()
                     .show()
         }
-
         btnCancel.onClick { onBackPressed() }
         btnSubmit.onClick { addNewTodo() }
-    }
-
-    private fun formatDate(date: Date): String {
-        return with(SimpleDateFormat("dd/MM yyyy HH:mm:ss", Locale.CHINA)) {
-            format(date)
-        }
     }
 
     fun addNewTodo() {

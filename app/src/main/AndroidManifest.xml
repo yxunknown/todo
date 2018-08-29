@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".activity.AddTaskActivity" />
         <activity android:name=".activity.TaskActivity" />
-        <activity android:name=".activity.NewTodoActivity"></activity>
+        <activity android:name=".activity.NewTodoActivity" />
+        <activity android:name=".activity.ProcessTodoActivity"></activity>
     </application>
 
 </manifest>

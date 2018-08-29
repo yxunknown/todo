@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="8dp"
+            android:id="@+id/checkbox"
+            android:src="@drawable/icon_uncheck_white"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            android:paddingStart="40dp"
+            android:text="sdaw"
+            android:id="@+id/tvTodoName"
+            android:textColor="@color/textIcon"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#FFF"
+            android:orientation="vertical"
+            android:id="@+id/deleteLine"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"/>
+    </FrameLayout>
+
+</FrameLayout>
