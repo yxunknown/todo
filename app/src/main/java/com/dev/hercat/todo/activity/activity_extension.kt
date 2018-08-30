@@ -9,13 +9,13 @@ val Activity.db
     get() = Database(applicationContext)
 
 fun Activity.formateDate(date: Date): String {
-    return with(SimpleDateFormat("dd/MM yyyy HH:mm:ss", Locale.CHINA)) {
+    return with(SimpleDateFormat("dd/MM yy HH:mm", Locale.CHINA)) {
         format(date)
     }
 }
 
 fun Activity.getDate(date: String): Date {
-    return with(SimpleDateFormat("dd/MM yyyy HH:mm:ss", Locale.CHINA)) {
+    return with(SimpleDateFormat("dd/MM yy HH:mm", Locale.CHINA)) {
         parse(date)
     }
 }

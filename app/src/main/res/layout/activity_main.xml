@@ -14,13 +14,12 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:padding="5dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:clickable="true"
             android:focusable="true"
             android:id="@+id/btnOpenDrawer"
-            android:src="@drawable/icon_cat" />
+            android:src="@drawable/icon_task" />
 
         <FrameLayout
             android:layout_width="match_parent"

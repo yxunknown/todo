@@ -8,6 +8,8 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.dev.hercat.todo.R
 import com.dev.hercat.todo.data.Todo
+import com.dev.hercat.todo.data.TodoStatus
+import org.jetbrains.anko.textColor
 
 class TodayTodoAdapter(val todos: List<Todo>,
                        val context: Context): BaseAdapter() {
@@ -18,6 +20,14 @@ class TodayTodoAdapter(val todos: List<Todo>,
         val tvTodoDate = view.findViewById<TextView>(R.id.tvTodoDate)
         tvTodoName.text = todos[position].name
         tvTodoDate.text = todos[position].doTime
+        val state = todos[position].status
+        tvTodoName.textColor = when(state) {
+            TodoStatus.TODO.value -> context.resources.getColor(R.color.textPrimary)
+            TodoStatus.FINISHED.value -> context.resources.getColor(R.color.colorSuccess)
+            TodoStatus.EXPIRED.value -> context.resources.getColor(R.color.colorDanger)
+            TodoStatus.IGNORED.value -> context.resources.getColor(R.color.textSecondary)
+            else -> context.resources.getColor(R.color.textSecondary)
+        }
         return view
     }
 

@@ -44,7 +44,7 @@ class NewTodoActivity : AppCompatActivity() {
                         add(Calendar.YEAR, 5)
                     })
                     .isCyclic(false)
-                    .setType(listOf(true, true, true, true, true, true).toBooleanArray())
+                    .setType(listOf(true, true, true, true, true, false).toBooleanArray())
                     .setTextColorCenter(resources.getColor(R.color.textSecondary))
                     .setTextColorOut(resources.getColor(R.color.colorDivider))
                     .setSubmitColor(resources.getColor(R.color.colorSuccess))
