@@ -15,6 +15,6 @@
         android:layout_height="wrap_content"
         android:textSize="12sp"
         android:gravity="center"
-        android:text="Oops...Nothing todo"
+        android:text="@string/error_tip"
         android:textColor="#f80"/>
 </LinearLayout>

@@ -8,22 +8,33 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/icon_main_icon"
         android:supportsRtl="true"
+        android:name=".application.TaskApplication"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity"
+        <activity
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AddTaskActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.TaskActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.NewTodoActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.ProcessTodoActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.AddTaskActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.TaskActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.NewTodoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ProcessTodoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity android:name=".activity.SettingActivity"></activity>
     </application>
 
 </manifest>

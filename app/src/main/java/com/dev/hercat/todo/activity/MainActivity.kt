@@ -1,12 +1,12 @@
 package com.dev.hercat.todo.activity
 
-import android.app.ActivityOptions
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.CardView
-import android.view.*
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
 import android.widget.ListView
 import android.widget.TextView
 import com.daimajia.androidanimations.library.Techniques
@@ -20,8 +20,6 @@ import kotlinx.android.synthetic.main.todo_today.*
 import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.sdk25.coroutines.onItemClick
-import org.jetbrains.anko.sdk25.coroutines.onLongClick
-import org.jetbrains.anko.sdk25.coroutines.onTouch
 import org.jetbrains.anko.support.v4.drawerListener
 import org.jetbrains.anko.toast
 import java.util.*
@@ -73,6 +71,9 @@ class MainActivity : AppCompatActivity() {
         btnOpenDrawer.onClick {
             drawer.openDrawer(Gravity.START)
 
+        }
+        btnSetting.onClick {
+            startActivity(intentFor<SettingActivity>())
         }
     }
 

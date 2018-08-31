@@ -1,7 +1,9 @@
 package com.dev.hercat.todo.activity
 
 import android.content.Context
+import android.content.res.AssetManager
 import android.graphics.Color
+import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.Editable
@@ -71,11 +73,14 @@ class AddTaskActivity : AppCompatActivity() {
 class GridThemAdapter(val context: Context): BaseAdapter() {
     val colors = com.dev.hercat.todo.tools.colors
 
+    val mTypeFace = Typeface.createFromAsset(context.assets, "fonts/hongdao.ttf")
+
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val color = colors[position]
-        val v = LayoutInflater.from(context).inflate(R.layout.theme_item, null)
+        val v = convertView ?: LayoutInflater.from(context).inflate(R.layout.theme_item, null)
         val background = v.findViewById<View>(R.id.themeColor)
         val name = v.findViewById<TextView>(R.id.tvThemeName)
+        name.typeface = mTypeFace
         background.setBackgroundColor(Color.parseColor(color.first))
         name.text = color.second.toUpperCase()
         return v

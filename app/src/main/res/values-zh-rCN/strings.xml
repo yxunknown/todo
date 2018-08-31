@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tasks</string>
+    <string name="tasks">任务&#160;</string>
+    <string name="lists">&#160;清单</string>
+    <string name="todays">今日&#160;</string>
+    <string name="add_list">添加任务</string>
+    <string name="error_tip">什么都没有发现</string>
+    <string name="success_tip">很好，今日没有待办事项</string>
+    <string name="todo_of_task">总事项数：%1$d,待完成数：%2$d</string>
+    <string name="tap_to_input_todo_name">输入名称</string>
+    <string name="tap_to_input_todo_desc">输入描述</string>
+    <string name="tap_to_chose_date">选择日期</string>
+    <string name="input_name_helper">待办事项的名称，不超过10个汉字</string>
+    <string name="input_desc_helper">描述该待办事项，不超过20个汉字</string>
+    <string name="chose_date_helper">选择该事项计划完成的时间</string>
+    <string name="tap_to_input_task_name">输入清单名称</string>
+    <string name="input_task_name_tip">新清单的名称，不超过10个汉字</string>
+    <string name="select_theme">选择主题颜色</string>
+    <string name="color_red_chahua">茶花红</string>
+    <string name="color_red_moli">草茉莉红</string>
+    <string name="color_red_yu">玉红</string>
+    <string name="color_deep_xiancai">苋菜紫</string>
+    <string name="color_deep_mantianxing">满天星紫</string>
+    <string name="color_deep_qianniu">牵牛紫</string>
+
+
+
+
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tasks</string>
+    <string name="tasks">Task&#160;</string>
+    <string name="lists">&#160;Lists</string>
+    <string name="todays">Today\'s&#160;</string>
+    <string name="add_list">Add Task List</string>
+    <string name="error_tip">Oops&#8230;Nothing&#160;Found</string>
+    <string name="success_tip">Nice, Everything&#160;has&#160;been&#160;done</string>
+    <string name="todo_of_task">%1$d&#160;of&#160;%2$d&#160;tasks</string>
+    <string name="tap_to_input_todo_name">tap&#160;to&#160;input&#160;name</string>
+    <string name="tap_to_input_todo_desc">tap&#160;to&#160;input&#160;desc</string>
+    <string name="tap_to_chose_date">tap&#160;to&#160;chose&#160;datetime</string>
+    <string name="input_name_helper">name&#160;of&#160;todo,no&#160;more&#160;than&#160;15&#160;characters</string>
+    <string name="input_desc_helper">description&#160;of&#160;todo,no&#160;more&#160;than&#160;40&#160;characters</string>
+    <string name="chose_date_helper">chose&#160;datetime&#160;of&#160;todo</string>
+    <string name="tap_to_input_task_name">tap&#160;to&#160;input&#160;name</string>
+    <string name="input_task_name_tip">name&#160;of&#160;task,no&#160;more&#160;than&#160;15&#160;characters</string>
+    <string name="select_theme">select&#160;a&#160;color&#160;theme</string>
+
+</resources>

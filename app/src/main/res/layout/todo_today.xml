@@ -16,15 +16,24 @@
             android:textSize="25sp"
             android:textStyle="bold"
             android:textColor="@color/textPrimary"
-            android:text="Today's "/>
+            android:text="@string/todays"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="25sp"
             android:textColor="@color/textSecondary"
-            android:text=" Lists"/>
+            android:text="@string/lists"/>
     </LinearLayout>
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:padding="5dp"
+        android:id="@+id/btnSetting"
+        android:background="?android:selectableItemBackgroundBorderless"
+        android:src="@drawable/icon_setting"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -49,6 +58,6 @@
            android:textSize="12sp"
            android:layout_marginTop="10dp"
            android:textColor="@color/colorSuccess"
-           android:text="Nice, Nothing todo today"/>
+           android:text="@string/success_tip"/>
    </LinearLayout>
 </FrameLayout>

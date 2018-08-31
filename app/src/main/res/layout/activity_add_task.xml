@@ -54,13 +54,13 @@
         android:layout_marginEnd="20dp"
         android:textSize="15sp"
         android:id="@+id/edtName"
-        android:hint="input name of task"
+        android:hint="@string/tap_to_input_task_name"
         app:met_floatingLabel="normal"
         app:met_floatingLabelTextColor="@color/colorDivider"
         app:met_textColor="@color/textIcon"
         app:met_errorColor="@color/textPrimary"
         app:met_textColorHint="@color/colorDivider"
-        app:met_helperText="Input the name of your new task"
+        app:met_helperText="@string/input_task_name_tip"
         app:met_helperTextColor="@color/colorDivider"
         app:met_helperTextAlwaysShown="true"
         app:met_underlineColor="@color/colorDivider"/>
@@ -73,7 +73,7 @@
         android:layout_marginEnd="20dp"
         android:textColor="@color/colorDivider"
         android:textSize="12sp"
-        android:text="select a color theme"/>
+        android:text="@string/select_theme"/>
 
     <GridView
         android:layout_width="match_parent"
@@ -82,6 +82,6 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="255dp"
         android:id="@+id/gvTheme"
-        android:numColumns="4"/>
+        android:numColumns="3"/>
 
 </FrameLayout>
