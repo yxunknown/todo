@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dev.hercat.todo">
 
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon_main_icon"
@@ -10,6 +12,10 @@
         android:supportsRtl="true"
         android:name=".application.TaskApplication"
         android:theme="@style/AppTheme">
+        <service android:name=".service.NotificationService"
+            android:enabled="true"
+
+            android:label="TASKS_LISTS_NOTIFICATOR"/>
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
