@@ -7,9 +7,13 @@ import android.os.IBinder
 import android.support.v4.app.NotificationCompat
 import com.dev.hercat.todo.R
 import com.dev.hercat.todo.activity.MainActivity
+import com.dev.hercat.todo.activity.db
+import com.dev.hercat.todo.tools.formatDate
+import com.dev.hercat.todo.tools.getDate
+import com.dev.hercat.todo.tools.minus
 import org.jetbrains.anko.intentFor
 
-class NotificationService: Service() {
+class NotificationService : Service() {
 
 
     override fun onBind(p0: Intent?): IBinder? {
@@ -22,21 +26,32 @@ class NotificationService: Service() {
     }
 }
 
-class ProcessTaskThread(val context: Context): Thread() {
+class ProcessTaskThread(val context: Context) : Thread() {
 
 
     override fun run() {
         val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val builder = NotificationCompat.Builder(context)
-        builder.setSmallIcon(R.drawable.icon_close_small)
-        builder.setContentTitle("ceshi")
-        builder.setContentText(("ceshi"))
-
+                .setSmallIcon(R.drawable.icon_main_icon)
+                .setContentTitle(context.resources.getString(R.string.notification_title))
+        val intent = context.intentFor<MainActivity>()
+        val taskStatusBuilder = TaskStackBuilder.create(context)
+        taskStatusBuilder.addParentStack(MainActivity::class.java)
+        taskStatusBuilder.addNextIntent(intent)
+        val pendingIntent = taskStatusBuilder.getPendingIntent(0,
+                PendingIntent.FLAG_UPDATE_CURRENT)
+        builder.setContentIntent(pendingIntent)
+        val notificationContent = context.resources.getString(R.string.notification_content)
         while (true) {
-
-
-            manager.notify(0x23, builder.build())
-            Thread.sleep(10000)
+            val tasks = context.db.selectTodoByDate(formatDate().substringBeforeLast(" "))
+            for (task in tasks) {
+                val times = getDate(task.doTime) - getDate(formatDate())
+                if (times <= 15) {
+                    builder.setContentText(String.format(notificationContent, task.name, task.desc, task.doTime))
+                    manager.notify(0x23, builder.build())
+                }
+            }
+            Thread.sleep(1 * 60 * 1000)
         }
     }
 }

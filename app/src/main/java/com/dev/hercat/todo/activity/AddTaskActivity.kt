@@ -61,7 +61,7 @@ class AddTaskActivity : AppCompatActivity() {
                     onBackPressed()
                 }
             } else {
-                edtName.error = "plz input the name of your new task"
+                edtName.error = resources.getString(R.string.input_task_name_error)
                 YoYo.with(Techniques.Bounce)
                         .duration(500)
                         .playOn(edtName)

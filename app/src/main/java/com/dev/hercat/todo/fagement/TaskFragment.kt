@@ -33,7 +33,6 @@ class TaskFragment: Fragment() {
     private lateinit var taskProgress: DonutProgress
     private lateinit var tvTaskInfo: TextView
     private lateinit var lvTask: ListView
-
     lateinit var task: Task
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.task_frgement, container, false)
@@ -65,6 +64,7 @@ class TaskFragment: Fragment() {
     }
 
     fun updateTodo(todos: MutableList<Todo>) {
+        val taskDesc = context!!.resources.getString(R.string.todo_of_task)
         if (todos.isNotEmpty()) {
             val now = Date()
             for ((index, todo) in todos.withIndex()) {
@@ -78,13 +78,13 @@ class TaskFragment: Fragment() {
             }
             val progress = todos.count { it.status == TodoStatus.FINISHED.value } / todos.count().toFloat()
             taskProgress.progress = progress * 100
-            tvTaskInfo.text = "${todos.count { it.status == TodoStatus.TODO.value }} of ${todos.count()} tasks"
+            tvTaskInfo.text = String.format(taskDesc, todos.count(), todos.count { it.status == TodoStatus.TODO.value })
             lvTask.adapter = TodoAdapter(context!!, task,  todos)
             errorView.visibility = View.GONE
             lvTask.visibility = View.VISIBLE
         } else {
             taskProgress.progress = 0f
-            tvTaskInfo.text = "0 task"
+            tvTaskInfo.text = String.format(taskDesc, 0, 0)
             errorView.visibility = View.VISIBLE
             lvTask.visibility = View.GONE
         }

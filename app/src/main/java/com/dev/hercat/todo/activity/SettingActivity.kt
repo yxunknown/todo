@@ -7,6 +7,7 @@ import com.afollestad.materialdialogs.MaterialDialog
 import com.afollestad.materialdialogs.list.listItemsSingleChoice
 import com.dev.hercat.todo.R
 import kotlinx.android.synthetic.main.activity_setting.*
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.toast
 
@@ -25,14 +26,22 @@ class SettingActivity : AppCompatActivity() {
                         .getInt("language", 0)
             MaterialDialog(this@SettingActivity)
                     .title(res = R.string.language)
-                    .listItemsSingleChoice(res = R.array.languages, initialSelection = select) {_, index, text ->
+                    .listItemsSingleChoice(res = R.array.languages, initialSelection = select) {dialog, index, text ->
+                        dialog.dismiss()
                         tvLanguage.text = text
                         val sp = getSharedPreferences("language", Context.MODE_PRIVATE)
                         val editor = sp.edit()
                         editor.putInt("language", index)
                         editor.apply()
                         updateLanguage()
-                        toast(resources.getString(R.string.set_language_tip))
+                        MaterialDialog(this@SettingActivity)
+                                .positiveButton(res = R.string.positive_text) {
+                                    finish()
+                                    startActivity(intentFor<MainActivity>())
+                                }
+                                .negativeButton(res = R.string.negative_text)
+                                .message(res = R.string.set_language_tip)
+                                .show()
                     }
                     .positiveButton(res = R.string.positive_text)
                     .negativeButton(res = R.string.negative_text)

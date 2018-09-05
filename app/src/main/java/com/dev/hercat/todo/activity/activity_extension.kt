@@ -36,3 +36,6 @@ fun Context.updateLanguage() {
     resources.updateConfiguration(configuration, resources.displayMetrics)
     createConfigurationContext(configuration)
 }
+
+val Context.db
+    get() = Database(applicationContext)

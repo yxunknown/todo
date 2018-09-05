@@ -40,6 +40,19 @@ class Database(val context: Context) {
         }
     }
 
+    fun deleteTaskById(id: Int): Boolean {
+        return db.use {
+            //delete todos which taskId is id
+            delete("todo",
+                    "taskId = {taskId}",
+                    "taskId" to id)
+            //delete task by id
+            delete("task",
+                    "id = {id}",
+                    "id" to id)
+        } == 1
+    }
+
     fun insertTodo(todo: Todo): Boolean {
         return if (selectTaskById(todo.taskId).isEmpty()) {
             false

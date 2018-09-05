@@ -15,12 +15,125 @@
     <string name="input_desc_helper">待辦事項說明，不超過20個字符</string>
     <string name="chose_date_helper">選擇該待辦事項完成時間</string>
     <string name="tap_to_input_task_name">輸入事項列表名稱</string>
-    <string name="input_task_name_tip">事項列表名稱，不超過10個漢子</string>
+    <string name="input_task_name_tip">事項列表名稱，不超過10個漢字</string>
     <string name="select_theme">選擇顏色主題</string>
-    <string name="color_red_chahua">茶花红</string>
-    <string name="color_red_moli">草茉莉红</string>
-    <string name="color_red_yu">玉红</string>
-    <string name="color_deep_xiancai">苋菜紫</string>
-    <string name="color_deep_mantianxing">满天星紫</string>
-    <string name="color_deep_qianniu">牵牛紫</string>
+    <string name="input_todo_name_error">請填寫待辦事項名稱</string>
+    <string name="input_todo_desc_error">請填寫待辦事項描述</string>
+    <string name="input_todo_date_error">請選擇待辦事項完成時間</string>
+    <string name="input_task_name_error">請輸入新清單名稱</string>
+    <string name="parameter_error">參數錯誤</string>
+    <string name="storage_failed">存儲失敗</string>
+    <string name="cancel_text">關閉</string>
+    <string name="submit_text">提交</string>
+    <string name="negative_text">取消</string>
+    <string name="positive_text">確認</string>
+    <string name="language">語言</string>
+    <string name="notification">通知</string>
+    <string name="about">關於</string>
+    <string name="turn_on">開</string>
+    <string name="turn_off">關</string>
+    <string-array name="languages">
+        <item>跟隨系統</item>
+        <item>簡體中文</item>
+        <item>繁體中文（香港）</item>
+        <item>繁體中文（台灣）</item>
+        <item>英文（美國）</item>
+    </string-array>
+
+    <string name="set_language_tip">設置語言成功，重啟後生效</string>
+
+    <string name="notification_title">你有新的待辦事項</string>
+    <string name="notification_content">名稱:%1$s,描述:%2$s,時間:%3$s</string>
+    <string name="status_todo">未完成</string>
+    <string name="status_finished">已完成</string>
+    <string name="status_expired">過期</string>
+    <string name="status_ignored">忽略</string>
+    <string name="status_tips">提示</string>
+    <string name="status_todo_tip">你還沒有完成該事項，請按時完成！</string>
+    <string name="status_finished_tip">已經完成該事項，恭喜你！</string>
+    <string name="status_expired_tip">你未按時完成該事項！</string>
+    <string name="status_ignored_tip">該事項超期，被標記為忽略狀態。</string>
+    <string name="dialog_tip">提醒</string>
+    <string name="mark_as_finished">是否將該事項標記為已完成？</string>
+    <string name="mark_as_finished_error">糟糕，由於數據庫錯誤，標記事項為已完成操作失敗，請再試！</string>
+    <string name="mark_as_ignored">你未按時完成該事項，是否要忽略該事項？</string>
+    <string name="mark_as_ignored_error">糟糕，由於數據庫錯誤，忽略事項操作失敗，請再試！</string>
+    <string name="mark_as_deleted">是否刪除該事項？</string>
+    <string name="mark_as_deleted_error">糟糕，由於數據庫錯誤，刪除事項操作失敗，請再試！</string>
+    <string name="mark_as_redo_error">糟糕，由於數據庫錯誤，重做事項操作失敗，請再試！</string>
+    <string name="delete_task">是否删除该任務清單？</string>
+    <string name="delete_task_error">糟糕，由於數據庫錯誤，刪除任務清單操作失敗，請再試！</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
 </resources>

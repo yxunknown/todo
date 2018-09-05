@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tasks</string>
+    <string name="tasks">Task&#160;</string>
+    <string name="lists">&#160;Lists</string>
+    <string name="todays">Today\'s&#160;</string>
+    <string name="add_list">Add Task List</string>
+    <string name="error_tip">Oops&#8230;Nothing&#160;Found</string>
+    <string name="success_tip">Nice, Everything&#160;has&#160;been&#160;done</string>
+    <string name="todo_of_task">%1$d&#160;of&#160;%2$d&#160;tasks</string>
+    <string name="tap_to_input_todo_name">tap&#160;to&#160;input&#160;name</string>
+    <string name="tap_to_input_todo_desc">tap&#160;to&#160;input&#160;desc</string>
+    <string name="tap_to_chose_date">Chose&#160;datetime</string>
+    <string name="input_name_helper">name&#160;of&#160;todo,no&#160;more&#160;than&#160;15&#160;characters</string>
+    <string name="input_desc_helper">description&#160;of&#160;todo,no&#160;more&#160;than&#160;40&#160;characters</string>
+    <string name="chose_date_helper">chose&#160;datetime&#160;of&#160;todo</string>
+    <string name="tap_to_input_task_name">tap&#160;to&#160;input&#160;name</string>
+    <string name="input_task_name_tip">name&#160;of&#160;task,no&#160;more&#160;than&#160;15&#160;characters</string>
+    <string name="select_theme">select&#160;a&#160;color&#160;theme</string>
+    <string name="input_todo_name_error">Please&#160;input&#160;name</string>
+    <string name="input_todo_desc_error">Please&#160;input&#160;description</string>
+    <string name="input_todo_date_error">Please&#160;chose&#160;date</string>
+    <string name="input_task_name_error">Please&#160;input&#160;name</string>
+    <string name="parameter_error">parameter&#160;failed</string>
+    <string name="storage_failed">store&#160;failed</string>
+    <string name="cancel_text">Cancel</string>
+    <string name="submit_text">Submit</string>
+    <string name="negative_text">Cancel</string>
+    <string name="positive_text">Ok</string>
+    <string name="language">Language</string>
+    <string name="notification">Notification</string>
+    <string name="about">About</string>
+    <string name="turn_on">On</string>
+    <string name="turn_off">Off</string>
+    <string-array name="languages">
+        <item>Auto</item>
+        <item>Simplified&#160;Chinese</item>
+        <item>Traditional&#160;Chinese(HongKong)</item>
+        <item>Traditional&#160;Chinese(Taiwan)</item>
+        <item>English(US)</item>
+    </string-array>
+
+    <string name="set_language_tip">Language&#160;setting&#160;changed,restart&#160;to&#160;work</string>
+
+    <string name="notification_title">New&#160;Todo</string>
+    <string name="notification_content">name:%1$s,desc:%2$s,time:%3$s</string>
+
+    <string name="status_todo">TODO</string>
+    <string name="status_finished">FINISHED</string>
+    <string name="status_expired">EXPIRED</string>
+    <string name="status_ignored">IGNORED</string>
+    <string name="status_tips">Help</string>
+    <string name="status_todo_tip">You&#160;do&#160;not&#160;finish&#160;this&#160;task,&#160;please&#160;do&#160;it&#160;at&#160;time.</string>
+    <string name="status_finished_tip">You&#160;have&#160;finished&#160;this,&#160;Congratulations!</string>
+    <string name="status_expired_tip">You&#160;did&#160;not&#160;finish&#160;this&#160;task&#160;at&#160;time.</string>
+    <string name="status_ignored_tip">You&#160;didn\'t&#160;finish&#160;this&#160;and&#160;then&#160;you&#160;marked&#160;it&#160;as&#160;IGNORED?</string>
+    <string name="dialog_tip">Tips</string>
+    <string name="mark_as_finished">Continue&#160;to&#160;mark&#160;it&#160;as&#160;FINISHED?</string>
+    <string name="mark_as_finished_error">Oops,process&#160;failed&#160;due&#160;to&#160;database&#160;error.</string>
+    <string name="mark_as_ignored">You&#160;don\'t&#160;finish&#160;it&#160;at&#160;time,continue&#160;to&#160;mark&#160;it&#160;as&#160;IGNORED?</string>
+    <string name="mark_as_ignored_error">Oops,process&#160;failed&#160;due&#160;to&#160;database&#160;error.</string>
+    <string name="mark_as_deleted">Continue&#160;to&#160;delete&#160;this&#160;todo?</string>
+    <string name="mark_as_deleted_error">Oops,process&#160;failed&#160;due&#160;to&#160;database&#160;error.</string>
+    <string name="mark_as_redo_error">Oops,process&#160;failed&#160;due&#160;to&#160;database&#160;error.</string>
+    <string name="delete_task">Continue&#160;to&#160;delete&#160;this&#160;task&#160;list?</string>
+    <string name="delete_task_error">Oops,process&#160;failed&#160;due&#160;to&#160;database&#160;error.</string>
+
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+</resources>

@@ -35,10 +35,10 @@ class NewTodoActivity : AppCompatActivity() {
                     .isDialog(false)
                     .setLabel("", "", "",
                             "", "", "")
-                    .setTitleText("Chose Datetime")
+                    .setTitleText(resources.getString(R.string.tap_to_chose_date))
                     .setTitleColor(resources.getColor(R.color.textPrimary))
-                    .setCancelText("Cancel")
-                    .setSubmitText("Ok")
+                    .setCancelText(resources.getString(R.string.cancel_text))
+                    .setSubmitText(resources.getString(R.string.submit_text))
                     .setDate(currentDate)
                     .setRangDate(Calendar.getInstance(), Calendar.getInstance().apply {
                         add(Calendar.YEAR, 5)
@@ -62,18 +62,18 @@ class NewTodoActivity : AppCompatActivity() {
         val desc = edtTodoDesc.text.toString()
         val date = btnTodoDate.text.toString()
         fun validateFiled(): Boolean {
-           return if (name == "" || desc == "" || date.length != 19) {
+           return if (name == "" || desc == "" || date.length != 14) {
                if (name == "") {
-                   edtTodoName.error = "Plz input the name of your new todo"
+                   edtTodoName.error = resources.getString(R.string.input_todo_name_error)
                }
                if (desc == "") {
-                   edtTodoDesc.error = "Plz input the describe of your new todo"
+                   edtTodoDesc.error = resources.getString(R.string.input_todo_desc_error)
                }
-               if (date.length != 19) {
+               if (date.length != 14) {
                    YoYo.with(Techniques.Pulse)
                            .repeat(2)
                            .playOn(btnTodoDate)
-                   toast("Plz select the datetime")
+                   toast(resources.getString(R.string.input_todo_date_error))
                }
                false
            } else true
@@ -81,7 +81,7 @@ class NewTodoActivity : AppCompatActivity() {
         if (validateFiled()) {
             val id = intent.getIntExtra("id", -1)
             if (id == -1) {
-                toast("parameter error")
+                toast(resources.getString(R.string.parameter_error))
             } else {
                 val todo = Todo(id = -1,
                         taskId = id,
@@ -92,7 +92,7 @@ class NewTodoActivity : AppCompatActivity() {
                 if (db.insertTodo(todo)) {
                     onBackPressed()
                 } else {
-                    toast("store new todo failed")
+                    toast(resources.getString(R.string.storage_failed))
                 }
             }
         }

@@ -14,8 +14,14 @@
     <string name="input_name_helper">待办事项的名称，不超过10个汉字</string>
     <string name="input_desc_helper">描述该待办事项，不超过20个汉字</string>
     <string name="chose_date_helper">选择该事项计划完成的时间</string>
+    <string name="input_todo_name_error">请填写待办事项的名称</string>
+    <string name="input_todo_desc_error">请填写待办事项的描述</string>
+    <string name="input_todo_date_error">请选择待办事项的完成时间</string>
     <string name="tap_to_input_task_name">输入清单名称</string>
     <string name="input_task_name_tip">新清单的名称，不超过10个汉字</string>
+    <string name="input_task_name_error">请输入新清单的名称</string>
+    <string name="parameter_error">参数错误</string>
+    <string name="storage_failed">存储失败</string>
     <string name="select_theme">选择主题颜色</string>
     <string name="cancel_text">关闭</string>
     <string name="submit_text">提交</string>
@@ -35,6 +41,30 @@
     </string-array>
 
     <string name="set_language_tip">设置应用语言成功，重启后生效</string>
+
+    <string name="notification_title">你有新的待办事项</string>
+    <string name="notification_content">名称:%1$s,描述:%2$s,时间:%3$s</string>
+
+    <string name="status_todo">待办</string>
+    <string name="status_finished">已完成</string>
+    <string name="status_expired">超期</string>
+    <string name="status_ignored">忽略</string>
+    <string name="status_tips">帮助</string>
+    <string name="status_todo_tip">你还未完成该事项，请按时完成！</string>
+    <string name="status_finished_tip">你已经完成该事项，恭喜！</string>
+    <string name="status_expired_tip">你未按时完成该事项。</string>
+    <string name="status_ignored_tip">该事项超期后，你选择了忽略该事项。</string>
+    <string name="dialog_tip">提示</string>
+    <string name="mark_as_finished">是否将该事项标记为已完成?</string>
+    <string name="mark_as_finished_error">哎哟，由于数据库错误，标记事项为已完成操作失败，请重试！</string>
+    <string name="mark_as_ignored">你未按时完成该事项，是否忽略该事项？</string>
+    <string name="mark_as_ignored_error">哎哟，由于数据库错误，忽略事项操作失败，请重试！</string>
+    <string name="mark_as_deleted">是否删除该事项？</string>
+    <string name="mark_as_deleted_error">哎哟，由于数据库错误，删除事项操作失败，请重试！</string>
+    <string name="mark_as_redo_error">哎哟，由于数据库错误，重新开启事项操作失败，请重试！</string>
+    <string name="delete_task">是否删除该任务清单？</string>
+    <string name="delete_task_error">哎哟，由于数据库错误，删除清单失败，请重试！</string>
+
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->

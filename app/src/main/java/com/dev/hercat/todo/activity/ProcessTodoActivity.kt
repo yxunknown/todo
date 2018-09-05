@@ -37,28 +37,28 @@ class ProcessTodoActivity : AppCompatActivity() {
                 0 -> {
                     btnMarkIgnore.visibility = View.GONE
                     btnMarkRedo.visibility = View.GONE
-                    "TODO" to "You are going to finish this task."
+                    resources.getString(R.string.status_todo) to resources.getString(R.string.status_todo_tip)
                 }
                 1 -> {
                     btnMarkDone.visibility = View.GONE
                     btnMarkIgnore.visibility = View.GONE
-                    "FINISHED" to "You have finished this task, Congratulations!"
+                    resources.getString(R.string.status_finished) to resources.getString(R.string.status_finished_tip)
                 }
                 2 -> {
-                    "EXPIRED" to "Opps, You don't finish this task at time."
+                    resources.getString(R.string.status_expired) to resources.getString(R.string.status_expired_tip)
                 }
                 3 -> {
                     btnMarkIgnore.visibility = View.GONE
-                    "IGNORED" to "You have ignored this task since it was expired"
+                    resources.getString(R.string.status_ignored) to resources.getString(R.string.status_ignored_tip)
                 }
                 else -> "NOT DEFINED" to "Opps, I have no idea about this"
             }
             tvTaskStatus.text = state.first
             btnStatusTips.onClick {
                 MaterialDialog(this@ProcessTodoActivity)
-                        .title(text = "Status Tips")
+                        .title(res = R.string.status_tips)
                         .message(text = state.second)
-                        .positiveButton(text = "Ok")
+                        .positiveButton(res = R.string.positive_text)
                         .show()
             }
         }
@@ -70,10 +70,10 @@ class ProcessTodoActivity : AppCompatActivity() {
         btnCancel.onClick { onBackPressed() }
         btnMarkDone.onClick {
             MaterialDialog(this@ProcessTodoActivity)
-                    .title(text = "Tips")
-                    .message(text = "Continue to mark this task as finished?")
-                    .negativeButton(text = "No")
-                    .positiveButton(text = "Yes") { dialog ->
+                    .title(res = R.string.dialog_tip)
+                    .message(res = R.string.mark_as_finished)
+                    .negativeButton(res = R.string.negative_text)
+                    .positiveButton(res = R.string.positive_text) { dialog ->
                         dialog.dismiss()
                         val todo = Todo(
                                 id = intent.getIntExtra("todoId", 0),
@@ -85,7 +85,7 @@ class ProcessTodoActivity : AppCompatActivity() {
                         if (db.updateTodo(todo)) {
                             initStatus(TodoStatus.FINISHED.value)
                         } else {
-                            toast("Oops, Mark task as finished fail due to database error.")
+                            toast(R.string.mark_as_finished_error)
                         }
                     }
                     .show()
@@ -93,10 +93,10 @@ class ProcessTodoActivity : AppCompatActivity() {
 
         btnMarkIgnore.onClick {
             MaterialDialog(this@ProcessTodoActivity)
-                    .title(text = "Tips")
-                    .message(text = "Continue to mark this task as ignore?")
-                    .negativeButton(text = "No")
-                    .positiveButton(text = "Yes") { dialog ->
+                    .title(res = R.string.dialog_tip)
+                    .message(res = R.string.mark_as_ignored)
+                    .negativeButton(res = R.string.negative_text)
+                    .positiveButton(res = R.string.positive_text) { dialog ->
                         dialog.dismiss()
                         val todo = Todo(
                                 id = intent.getIntExtra("todoId", 0),
@@ -108,23 +108,23 @@ class ProcessTodoActivity : AppCompatActivity() {
                         if (db.updateTodo(todo)) {
                             initStatus(TodoStatus.IGNORED.value)
                         } else {
-                            toast("Opps, Mark task as ignored fail due to database error.")
+                            toast(R.string.mark_as_ignored_error)
                         }
                     }
                     .show()
         }
         btnMarkDelete.onClick {
             MaterialDialog(this@ProcessTodoActivity)
-                    .title(text = "Tips")
-                    .message(text = "Continue to delete this task?")
-                    .negativeButton(text = "No")
-                    .positiveButton(text = "Yes") { dialog ->
+                    .title(res = R.string.dialog_tip)
+                    .message(res = R.string.mark_as_deleted)
+                    .negativeButton(res = R.string.negative_text)
+                    .positiveButton(res = R.string.positive_text) { dialog ->
                         dialog.dismiss()
                         if (db.deleteTodoById(intent.getIntExtra("todoId", 0))) {
                             //return to last page
                             onBackPressed()
                         } else {
-                            toast("Oops, delete this task fail due to database error.")
+                            toast(R.string.mark_as_deleted_error)
                         }
                     }
                     .show()
@@ -142,16 +142,16 @@ class ProcessTodoActivity : AppCompatActivity() {
                     initStatus(TodoStatus.TODO.value)
                     tvTodoDate.text = formateDate(date)
                 } else {
-                    toast("Oops, redo this task fail due to database error.")
+                    toast(R.string.mark_as_redo_error)
                 }
             }
                     .isDialog(false)
                     .setLabel("", "", "",
                             "", "", "")
-                    .setTitleText("Chose Datetime")
+                    .setTitleText(resources.getString(R.string.tap_to_chose_date))
                     .setTitleColor(resources.getColor(R.color.textPrimary))
-                    .setCancelText("Cancel")
-                    .setSubmitText("Ok")
+                    .setCancelText(resources.getString(R.string.cancel_text))
+                    .setSubmitText(resources.getString(R.string.submit_text))
                     .setRangDate(Calendar.getInstance(), Calendar.getInstance().apply {
                         add(Calendar.YEAR, 5)
                     })

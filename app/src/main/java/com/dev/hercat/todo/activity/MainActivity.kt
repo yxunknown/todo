@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ListView
 import android.widget.TextView
+import com.afollestad.materialdialogs.MaterialDialog
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.dev.hercat.todo.R
@@ -113,10 +114,23 @@ class MainActivity : AppCompatActivity() {
                     val deleteBtn = v.findViewById<View>(R.id.btnDeleteTask)
                     deleteBtn.visibility = if (deleteBtn.visibility == View.GONE) View.VISIBLE else View.GONE
                     deleteBtn.onClick {
-                        YoYo.with(Techniques.FadeOutDown)
-                                .duration(500)
-                                .playOn(v)
-                        taskListContainer.removeView(v)
+                        MaterialDialog(this@MainActivity)
+                                .title(res = R.string.dialog_tip)
+                                .message(res = R.string.delete_task)
+                                .negativeButton(res = R.string.negative_text)
+                                .positiveButton(res = R.string.positive_text) { dialog ->
+                                    dialog.dismiss()
+
+                                    if (db.deleteTaskById(task.id)) {
+                                        YoYo.with(Techniques.FadeOutDown)
+                                                .duration(500)
+                                                .playOn(v)
+                                        taskListContainer.removeView(v)
+                                    } else {
+                                        toast(R.string.delete_task_error)
+                                    }
+                                }
+                                .show()
                     }
                     true
                 }
