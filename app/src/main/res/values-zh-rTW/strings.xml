@@ -63,6 +63,7 @@
     <string name="mark_as_redo_error">糟糕，由於數據庫錯誤，重做事項操作失敗，請再試！</string>
     <string name="delete_task">是否删除该任務清單？</string>
     <string name="delete_task_error">糟糕，由於數據庫錯誤，刪除任務清單操作失敗，請再試！</string>
+    <string name="parse_data_error">數據解析錯誤</string>
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->

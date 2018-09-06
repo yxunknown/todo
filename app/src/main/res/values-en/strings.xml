@@ -64,6 +64,7 @@
     <string name="mark_as_redo_error">Oops,process&#160;failed&#160;due&#160;to&#160;database&#160;error.</string>
     <string name="delete_task">Continue&#160;to&#160;delete&#160;this&#160;task&#160;list?</string>
     <string name="delete_task_error">Oops,process&#160;failed&#160;due&#160;to&#160;database&#160;error.</string>
+    <string name="parse_data_error">Oops, Parse data error.</string>
 
     <string name="title_activity_settings">Settings</string>
 

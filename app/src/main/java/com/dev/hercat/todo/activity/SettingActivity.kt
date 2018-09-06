@@ -18,9 +18,18 @@ class SettingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_setting)
         btnBack.onClick { onBackPressed() }
 
+        //init language setting
         val index = getSharedPreferences("language", Context.MODE_PRIVATE)
                 .getInt("language", 0)
         tvLanguage.text = resources.getStringArray(R.array.languages)[index]
+
+        //init notification
+        val sp = getSharedPreferences("NOTIFICATION", Context.MODE_PRIVATE)
+        val checked = sp.getBoolean("should_notification", true)
+        notificationSwitcher.isChecked = checked
+        val text = if (notificationSwitcher.isChecked) R.string.turn_on else R.string.turn_off
+        notificationSwitcher.text = resources.getText(text)
+
         btnSetLanguage.onClick {
             val select = getSharedPreferences("language", Context.MODE_PRIVATE)
                         .getInt("language", 0)
@@ -48,10 +57,14 @@ class SettingActivity : AppCompatActivity() {
                     .show()
         }
         btnSetNotification.onClick {
-            val checked = !notificationSwitcher.isChecked
-            notificationSwitcher.isChecked = checked
-            val text = if (notificationSwitcher.isChecked) R.string.turn_on else R.string.turn_off
-            notificationSwitcher.text = resources.getString(text)
+            val isCheck = notificationSwitcher.isChecked
+            notificationSwitcher.isChecked = !isCheck
+            val notificationStatusStr = if (notificationSwitcher.isChecked) R.string.turn_on else R.string.turn_off
+            notificationSwitcher.text = resources.getString(notificationStatusStr)
+            val editor = sp.edit()
+            editor.putBoolean("should_notification", !isCheck)
+            editor.apply()
         }
+        btnAbout.onClick { startActivity(intentFor<AboutActivity>()) }
     }
 }

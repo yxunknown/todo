@@ -46,7 +46,7 @@ class ProcessTaskThread(val context: Context) : Thread() {
             val tasks = context.db.selectTodoByDate(formatDate().substringBeforeLast(" "))
             for (task in tasks) {
                 val times = getDate(task.doTime) - getDate(formatDate())
-                if (times <= 15) {
+                if (times in 0..15) {
                     builder.setContentText(String.format(notificationContent, task.name, task.desc, task.doTime))
                     manager.notify(0x23, builder.build())
                 }

@@ -64,6 +64,7 @@
     <string name="mark_as_redo_error">哎哟，由于数据库错误，重新开启事项操作失败，请重试！</string>
     <string name="delete_task">是否删除该任务清单？</string>
     <string name="delete_task_error">哎哟，由于数据库错误，删除清单失败，请重试！</string>
+    <string name="parse_data_error">数据解析错误</string>
 
     <string name="title_activity_settings">Settings</string>
 

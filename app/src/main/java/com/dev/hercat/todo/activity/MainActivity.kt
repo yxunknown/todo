@@ -43,11 +43,11 @@ class MainActivity : AppCompatActivity() {
                     todayTodoList.visibility = View.GONE
                     niceView.visibility = View.VISIBLE
                 }
-                todayTodoList.onItemClick { adapter, view, position, id ->
+                todayTodoList.onItemClick { _, _, position, _ ->
                     val todo = todos[position]
                     val task = db.selectTaskById(todo.taskId).firstOrNull()
                     if (task !is Task) {
-                        toast("Ohh, Parse data error")
+                        toast(R.string.parse_data_error)
                     } else {
                         startActivity(intentFor<ProcessTodoActivity>(
                                 "taskName" to task.name,
